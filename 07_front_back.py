@@ -10,9 +10,24 @@ Exemplo: 'abcde', a metade da frente é 'abc' e a de trás é 'de'.
 Finalmente, dadas duas strings a e b, retorne uma string na forma:
 a-frente + b-frente + a-trás + b-trás
 """
+# método para dividir uma string usando slice
+def dividir(s):
+    indice = int(len(s) / 2) #aqui utilizei o int para converter o float
+    if len(s) % 2 == 0: #se for par
+        frente = s[:indice]
+        tras = s[indice:]
+        frente_tras = [frente,tras]
+        return frente_tras
+    
+    #se não for par, então é impar
+    frente = s[:indice +1]
+    tras = s[indice +1:]
+    frente_tras = [frente,tras]
+    return frente_tras
+
 def front_back(a, b):
     # +++ SUA SOLUÇÃO +++
-    return
+    return dividir(a)[0] + dividir(b)[0] + dividir(a)[1] + dividir(b)[1] #retorno várias strings concatenadas em +, buscando-as nas listas
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
