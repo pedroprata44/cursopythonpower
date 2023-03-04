@@ -10,7 +10,7 @@ Exemplo: 'abcde', a metade da frente é 'abc' e a de trás é 'de'.
 Finalmente, dadas duas strings a e b, retorne uma string na forma:
 a-frente + b-frente + a-trás + b-trás
 """
-from math import ceil
+from math import ceil #o método ceil retorna o número inteiro mais próximo de um número quebrado, ex: 2.5 vai retornar 3, 1.2 vai retornar 2...
 
 def dividir_string(s):
     i = ceil(len(s)/2) #calculando metade do tamanho da string em número inteiro utilizando o ceil

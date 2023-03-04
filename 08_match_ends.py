@@ -10,7 +10,13 @@ PS: Python não possui o operador ++, porém += funciona.
 
 def match_ends(words):
     # +++ SUA SOLUÇÃO +++
-    return
+    cont = 0 #contador de strings dentro da exigência
+
+    for w in words: #w vai percorrer a lista words (aqui w será cada elemento da lista, então a tipagem dele pode mudar dependendo da posição, o que no caso não acontece, já que todos os elementos de words são strings)
+        if len(w) >= 2 and w[0] == w[-1]: #se o tamanho da string que w assumiu for maior ou igual a 2 e o primeiro caracter é igual ao último caracter, então
+            cont += 1 #adiciona +1 no contador
+    
+    return cont #retorna o contador
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
