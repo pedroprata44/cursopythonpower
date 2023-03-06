@@ -13,8 +13,11 @@ antes de combina-las.
 
 def front_x(words):
     # +++ SUA SOLUÇÃO +++
-    return
+    words.sort() #coloca a lista words em ordem alfabética
+    comx = [w for w in words if w[0] == 'x'] #cria um nova lista, com o nome 'ComX', que através da compreensão de lista, adiciona apenas os itens que começam com x
+    semx = [w for w in words if w[0] != 'x'] #cria uma nova lista, com o nome 'SemX, que através da compreensão de lista, adiciona apenas os itens que não começam com x
 
+    return comx + semx #retorna primeiro a lista de itens que começam com x, e depois cocatena com a lista de palavras sem x
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
