@@ -10,7 +10,13 @@ Irá retornar: [1, 2, 3]
 
 def remove_adjacent(nums):
     # +++ SUA SOLUÇÃO +++
-    return
+    numerosiguais = [] #Lista para receber os números repetidos em sequência
+    for index, numero in enumerate(nums): #index e numero vão percorrer a lista nums, que será enumerada, portanto index vai guardar a posição da lista e numero guarda o valor naquela posição
+        if index == 0: numerosiguais.append(numero) #se for o primeiro número, ele entra na lista
+        elif numero != nums[index-1]: numerosiguais.append(numero) #se não se o numero for diferente do numero anterior, ele também entra na lista
+    
+    return numerosiguais #retorno a lista criada para números que se repetiram
+
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
