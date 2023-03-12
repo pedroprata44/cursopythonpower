@@ -8,10 +8,11 @@ modificar as listas recebidas.
 A sua solução deve rodar em tempo linear, ou seja, deve fazer uma
 única passagem em cada uma das listas.
 """
+from heapq import merge #importei a função merge()
 
 def linear_merge(list1, list2):
     # +++ SUA SOLUÇÃO +++
-    return
+    return list(merge(list1,list2)) #retorna uma lista, utilizando merge, que pode receber diversos iteráveis, gerando apenas um, organizando-o na ordem pedida
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
