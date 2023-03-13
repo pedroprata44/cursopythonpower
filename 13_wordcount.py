@@ -56,7 +56,36 @@ import sys
 
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
+def print_words(filename): #essa função printa em ordem alfabética as palavras ou letras que aparecerem e na frente o número de vezes que apareceram
+    with open(filename,'r') as arquivo: #abre o arquivo filename.txt e atribui ele ao objeto arquivo
+        palavras = arquivo.read().lower().split() #lista de palavras do arquivo em minúsculo e separadas uma por uma. Aqui no caso vamos separar letra por letra
+        dicionario = dict() #dicionário vazio, ele vai conter mais pra frente o resultado
 
+        for palavra in palavras: #palavra percorre a lista palavras
+            if palavra in dicionario: #se a palavra atual existe como chave no dicionário
+                dicionario[palavra] += 1 #então aquela chave recebe mais 1
+            else: #senão existe
+                dicionario[palavra] = 1 #ela é criada e recebe o valor 1
+        
+        #Items cria uma lista de tuplas através de um dicionário, assim: (chave do dicionário, valor do dicionário)
+        for chave,valor in dicionario.items(): #chave e valor vão percorrer uma lista de tuplas, sendo chave o primeiro elemento da tupla e valor o segundo
+            print(chave + ' ' + str(valor)) #printa o resultado com um espaço entre eles. 
+
+def print_top(filename): #essa função printa as 20 letras que mais apareceram em um arquivo de texto
+    #aqui fazemos exatamente como acima
+    with open(filename,'r') as arquivo: 
+        palavras = arquivo.read().lower().split() 
+        dicionario = dict()
+
+        for palavra in palavras:
+            if palavra in dicionario:
+                dicionario[palavra] += 1
+            else:
+                dicionario[palavra] = 1
+        
+        #mudamos aqui:
+        for chave,valor in sorted(dicionario.items(),key=lambda x:x[1],reverse=True)[:20]: #chave e valor vão percorrer uma lista de tuplas como acima, porém a lista será ordenada a partir do segundo elemento de cada tupla, até os 20 primeiros elementos
+            print(chave + ' ' + str(valor)) #mostra o resultado pra gente
 
 # A função abaixo chama print_words() ou print_top() de acordo com os
 # parêtros do programa.
